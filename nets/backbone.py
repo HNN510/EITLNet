@@ -427,9 +427,9 @@ class MixVisionTransformer(nn.Module):
         )
         self.norm4 = norm_layer(embed_dims[3])
 
-        self.apply(self._init_weights)
+        # self.apply(self._init_weights)
 
-        self.bam3 = BAM(320)
+        # self.bam3 = BAM(320)
 
     def _init_weights(self, m):
         if isinstance(m, nn.Linear):
@@ -479,7 +479,7 @@ class MixVisionTransformer(nn.Module):
         x = self.norm3(x)
         x = x.reshape(B, H, W, -1).permute(0, 3, 1, 2).contiguous()
 
-        x = self.bam3(x)
+        # x = self.bam3(x)
 
         outs.append(x)
 
